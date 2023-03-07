@@ -39,12 +39,18 @@ public class TemplateManager : ITemplateManager
             return JsonSerializer.Deserialize<TemplateOptions>(json, SerializerOptions)
                    ?? throw new JsonException("Invalid template file");
         }
-        catch (Exception exception)
+        catch (FileNotFoundException)
         {
-            var options = new TemplateOptions();
-            SaveTemplateFile(options);
-            return new TemplateOptions();
+            // Create
         }
+        catch (DirectoryNotFoundException)
+        {
+            // Create
+        }
+        
+        var options = new TemplateOptions();
+        SaveTemplateFile(options);
+        return new TemplateOptions();
     }
 
     /// <inheritdoc />
