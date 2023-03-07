@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>true</PackAsTool>
+    <PackageVersion>1.0.0</PackageVersion>
+    <ToolCommandName>scan</ToolCommandName>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="vertical-commandline" Version="2.3.1" />
+    <PackageReference Include="vertical-spectreconsolelogger" Version="0.10.0-dev.20220814.14" />
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="help.txt" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="README.md" />
+    <Content Include="README.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
