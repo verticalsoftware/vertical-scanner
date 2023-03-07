@@ -14,7 +14,7 @@ public class ScanOptionsParserConfiguration : ApplicationConfiguration<ScanOptio
     /// </summary>
     public ScanOptionsParserConfiguration()
     {
-        Help.UseFile("README.md");
+        Help.UseFile("README.txt");
         HelpOption("--help", InteractiveConsoleHelpWriter.Default);
 
         Switch("-V|--version", arg => arg.Map.ToProperty(opt => opt.PrintVersion));

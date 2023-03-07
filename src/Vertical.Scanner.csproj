@@ -22,7 +22,11 @@
   
   <ItemGroup>
     <None Remove="README.md" />
-    <Content Include="README.md">
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="..\README.txt">
+      <Link>README.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
