@@ -41,8 +41,8 @@ public class TemplateManager : ITemplateManager
         }
         catch (Exception exception)
         {
-            AnsiConsole.MarkupLine("[red]{0}[/]", exception.Message.EscapeMarkup());
-            AnsiConsole.WriteLine("Scanner will use out-of-box templates:");
+            var options = new TemplateOptions();
+            SaveTemplateFile(options);
             return new TemplateOptions();
         }
     }
@@ -106,6 +106,11 @@ public class TemplateManager : ITemplateManager
             }
         }
 
+        SaveTemplateFile(options);
+    }
+
+    private void SaveTemplateFile(TemplateOptions options)
+    {
         var path = _options.Value.TemplateOut ?? DefaultFilePath;
         var json = JsonSerializer.Serialize(options, SerializerOptions);
         var directory = Path.GetDirectoryName(Path.GetFullPath(path))!;
